@@ -17,7 +17,11 @@ Her modül dört adımdan oluşur: **Sezgi → Kavram → Oyna → Sına**. İle
 | B · GD&T'ye geçiş | 4 ± sisteminin sınırları | Delik konumu muayenesi | ✅ |
 | | 5 Tolerans çerçevesi (ISO 1101) | Çerçeve kurucu | ✅ |
 | | 6 Datumlar (ISO 5459) | 3B serbestlik dedektifi | ✅ |
-| C · Geometrik karakteristikler | 7–11 Form, yönelim, konum, profil, salgı | | yakında |
+| C · Geometrik karakteristikler | 7 Form toleransları | Form laboratuvarı (minimum bölge) | ✅ |
+| | 8 Yönelim toleransları | Komparatörlü ölçüm tezgâhı | ✅ |
+| | 9 Konum toleransları | Delik deseni muayenesi | ✅ |
+| | 10 Profil toleransları | Profil muayenesi (UZ, renk haritası) | ✅ |
+| | 11 Salgı toleransları | Salgı tezgâhı | ✅ |
 | D · İleri konular | 12–14 Malzeme gereklilikleri, tolerans zinciri, final | | yakında |
 
 ## Çalıştırma
@@ -37,6 +41,7 @@ Sonra http://localhost:8765 adresine gidin. Yazı tipleri ve Modül 6'daki 3B sa
 - `js/core.js`: durum, XP, yönlendirme, modül çerçevesi, quiz ve ortak bileşenler
 - `js/curriculum.js`, `js/glossary.js`, `js/main.js`: müfredat haritası, sözlük, ana sayfa
 - `js/iso.js`: ISO 2768 ve ISO 286 tabloları
+- `js/geo.js`: minimum bölge hesapları (doğrusallık, düzlemsellik, dairesellik) ve desen en iyi oturtma
 - `js/scene3d.js`: three.js yardımcısı
 - `js/mN.js`: her modülün içeriği (`js/sim0.js`: Modül 0 simülasyonu)
 

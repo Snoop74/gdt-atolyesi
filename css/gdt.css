@@ -803,6 +803,88 @@ span.fcf .fcf-cell:hover { background: transparent; color: var(--ink); }
 .case-msg { margin-top: 10px; }
 .three-card { padding: 10px; }
 
+/* ---------- section C shared ---------- */
+.mz-svg, .lab-svg, .zone-art, .lobe-svg, .dia-svg, .env-svg, .bench-svg, .or-svg, .hier-svg, .hole-svg, .sb-svg,
+.pat-svg, .coax-svg, .sym-svg, .pat-mini, .pf-svg, .ls-svg, .trace-svg, .axial-svg, .see-svg { width: 100%; height: auto; display: block; }
+.lab-svg.round, .lobe-svg, .see-svg { max-width: 340px; margin: 0 auto; }
+.lab-svg.round { touch-action: none; cursor: grab; }
+.mz-band { fill: var(--blue-soft); }
+.mz-band.ok { fill: var(--ok-soft); }
+.mz-band.bad { fill: var(--bad-soft); }
+.mz-line { stroke: var(--blue); stroke-width: 1.4; stroke-dasharray: 5 3; }
+.mz-ring { fill: none; stroke: var(--blue); stroke-width: 1.4; stroke-dasharray: 5 3; }
+.prof-line { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linejoin: round; }
+.prof-line.fill { fill: var(--accent-soft); }
+.prof-pt { fill: var(--accent); stroke: var(--surface); stroke-width: 1.5; }
+.geo-ring-in { fill: none; stroke: var(--accent); stroke-dasharray: 4 3; }
+.geo-zone.ring2 { fill: var(--accent-soft); stroke: var(--accent); stroke-dasharray: 4 3; }
+.geo-zone.badz { fill: var(--bad-soft); stroke: var(--bad); }
+.env-box { fill: none; stroke: var(--blue); stroke-width: 1.5; stroke-dasharray: 6 4; }
+.ctr path { stroke: var(--blue); stroke-width: 2; }
+.ctr circle { fill: none; stroke: var(--blue); stroke-width: 2; }
+.lab-head { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-bottom: 8px; }
+.feat { stroke: var(--accent); stroke-width: 3; }
+
+/* dial indicator */
+.dial-rim { fill: var(--line-strong); }
+.dial-face { fill: #fdfcf7; }
+.dt { stroke: #33414f; stroke-width: .8; }
+.dt-major { stroke: #1b2836; stroke-width: 1.6; }
+.dl { font: 600 8px var(--mono); fill: #33414f; }
+.dial-needle { stroke: #c43030; stroke-width: 2.2; stroke-linecap: round; }
+.dial-hub { fill: #1b2836; }
+.dial-read { font: 700 12px var(--mono); fill: #1b2836; }
+.dp-max { fill: #c43030; }
+.dp-min { fill: #1c5d99; }
+.bench-grid { display: grid; grid-template-columns: 1fr 170px; gap: 14px; align-items: center; }
+.dial-box { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.cov { width: 150px; height: 6px; border-radius: 99px; background: var(--line); overflow: hidden; }
+.cov i { display: block; height: 100%; width: 0; background: var(--ok); transition: width .2s; }
+.square { fill: var(--line-strong); }
+.stylus { stroke: var(--ink); stroke-width: 2; }
+.stylus-tip { fill: var(--accent); }
+.ind-body { fill: var(--ink); }
+.sinebar path { stroke: var(--ink); stroke-width: 6; }
+.sinebar circle, .sinebar rect { fill: var(--line-strong); stroke: var(--ink); }
+.hz { stroke-width: 1.2; }
+.hz.loc { fill: var(--blue-soft); stroke: var(--blue); }
+.hz.ori { fill: var(--warn-soft); stroke: var(--warn); }
+.hz.form { fill: var(--accent-soft); stroke: var(--accent); }
+.drw-hole-cut { fill: var(--surface); stroke: var(--ink); }
+.sb-line { stroke: var(--ink); stroke-width: 8; stroke-linecap: round; }
+.gauge-block { fill: var(--warn); stroke: var(--ink); }
+.setup-box { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-end; padding: 10px 12px; border: 1px dashed var(--line-strong); border-radius: 10px; margin-bottom: 10px; }
+.setup-box .g-field { flex: 1; min-width: 220px; }
+.setup-msg { font-size: .88rem; }
+.good { color: var(--ok); }
+.badc { color: var(--bad); }
+
+/* module 9 */
+.hole-ring { fill: var(--surface-2); stroke: var(--ink); stroke-width: 2; }
+.pin { fill: var(--blue); opacity: .85; }
+.pin.jam { fill: var(--bad); }
+.zp-n.dark { fill: var(--ink); font-size: 11px; }
+.pos-table td { white-space: nowrap; }
+
+/* module 10 */
+.pf-band { fill: var(--ok-soft); stroke: var(--ok); stroke-width: 1; stroke-dasharray: 4 3; }
+.pf-nom { fill: none; stroke: var(--ink); stroke-width: 1.4; stroke-dasharray: 6 3; }
+.pf-nom.solid { stroke-dasharray: none; }
+.pf-dev { stroke: var(--muted); stroke-width: 1; }
+.pf-sec { fill: none; stroke: var(--accent); stroke-width: 3; }
+.pf-shell { fill: var(--accent-soft); stroke: var(--accent); }
+.pf-rib { stroke: var(--line-strong); fill: none; }
+.cmap { display: grid; grid-template-columns: repeat(16, 1fr); gap: 2px; margin: 10px 0; }
+.cmap i { aspect-ratio: 1.4; border-radius: 3px; }
+.cmap i.out { outline: 2px solid var(--ink); outline-offset: -2px; }
+.cmap-legend { display: flex; align-items: center; gap: 8px; font-size: .85rem; flex-wrap: wrap; }
+.cmap-legend i { width: 160px; height: 10px; border-radius: 99px; background: linear-gradient(90deg, hsl(220,65%,49%), hsl(120,70%,55%), hsl(0,70%,47%)); }
+
+/* module 11 */
+.centre { fill: var(--line-strong); stroke: var(--ink); }
+.spin { fill: var(--surface-2); stroke: var(--ink); }
+.spin-mark { stroke: var(--accent); stroke-width: 3; stroke-linecap: round; }
+
 /* ---------- glossary drawer ---------- */
 .scrim { position: fixed; inset: 0; background: rgba(10, 16, 24, .4); z-index: 40; }
 .drawer {
@@ -851,6 +933,7 @@ span.fcf .fcf-cell:hover { background: transparent; color: var(--ink); }
   .hero, .slide-grid, .slide-grid.wide-right, .bench-top, .brief, .g-grid, .lin-ctl, .fd-ctl { grid-template-columns: 1fr; }
   .notes4, .fit-tasks { grid-template-columns: repeat(2, 1fr); }
   .m4-grid, .cmp-grid, .cell-legend { grid-template-columns: 1fr; }
+  .bench-grid { grid-template-columns: 1fr; }
   .det { grid-template-columns: 1fr; }
   .kpis4 { grid-template-columns: repeat(2, 1fr); }
   .rule-grid { grid-template-columns: 1fr; }
@@ -869,6 +952,7 @@ span.fcf .fcf-cell:hover { background: transparent; color: var(--ink); }
   .pairs { grid-template-columns: repeat(2, 1fr); }
   .forms3, .fit-tasks, .job-tabs { grid-template-columns: 1fr; }
   .dofs { grid-template-columns: repeat(2, 1fr); }
+  .cmap { gap: 1px; }
   span.fcf.big .fcf-cell { min-width: 44px; height: 46px; padding: 0 9px; font-size: 1.1rem; }
   .sym-pal { grid-template-columns: repeat(5, 1fr); }
   .cost-info, .cost-pre { grid-template-columns: 1fr 1fr; }

@@ -469,5 +469,7 @@
     GDT.quiz(el, { id: 'm4.quiz', questions: QUESTIONS, onPass: api.done });
   }
 
+  GDT.zonePlot = zonePlot;
+  GDT.svgPoint = svgPoint;
   GDT.registerModule(4, { steps: { sezgi, kavram, oyna, sina } });
 })();

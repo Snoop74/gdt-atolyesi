@@ -326,6 +326,27 @@ GDT.fcfHTML = ({ sym, zone = '', value = '', mods = [], datums = [] }, cls = '')
 // Boxed theoretically exact dimension and datum feature indicator
 GDT.tedHTML = (v) => `<span class="ted mono">${v}</span>`;
 
+// Dial indicator, 0,01 mm per division (one turn = 1 mm). Optional drag pointers for max/min memory.
+GDT.dialSVG = (um, { max = null, min = null, size = 150 } = {}) => {
+  const ang = (v) => (v / 10) * 3.6; // degrees, 10 µm = one division = 3,6°
+  const ticks = [];
+  for (let i = 0; i < 100; i++) {
+    const major = i % 10 === 0, mid = i % 5 === 0;
+    const a = (i * 3.6 * Math.PI) / 180, r1 = major ? 52 : mid ? 56 : 59;
+    ticks.push(`<line x1="${70 + r1 * Math.sin(a)}" y1="${70 - r1 * Math.cos(a)}" x2="${70 + 63 * Math.sin(a)}" y2="${70 - 63 * Math.cos(a)}" class="${major ? 'dt-major' : 'dt'}"/>`);
+    if (major) ticks.push(`<text x="${70 + 43 * Math.sin(a)}" y="${74 - 43 * Math.cos(a)}" text-anchor="middle" class="dl">${i}</text>`);
+  }
+  const ptr = (v, cls) => (v == null ? '' : `<path class="${cls}" d="M70 4l-4 9h8z" transform="rotate(${ang(v)} 70 70)"/>`);
+  return `<svg class="dial" viewBox="0 0 140 140" width="${size}" height="${size}" role="img" aria-label="Komparatör ${GDT.num(um / 1000)} mm">
+    <circle cx="70" cy="70" r="67" class="dial-rim"/><circle cx="70" cy="70" r="64" class="dial-face"/>
+    ${ticks.join('')}${ptr(max, 'dp-max')}${ptr(min, 'dp-min')}
+    <line x1="70" y1="82" x2="70" y2="12" class="dial-needle" transform="rotate(${ang(um)} 70 70)"/>
+    <circle cx="70" cy="70" r="5" class="dial-hub"/>
+    <text x="70" y="100" text-anchor="middle" class="dial-read">${um >= 0 ? '+' : '−'}${GDT.num(Math.abs(um) / 1000)}</text>
+    <text x="70" y="112" text-anchor="middle" class="dl">0,01 mm</text>
+  </svg>`;
+};
+
 // Single inline question inside a story step
 GDT.ask = (host, { q, options, answer, explain, onDone }) => {
   const box = GDT.el(`
@@ -359,9 +380,10 @@ GDT.carousel = (el, slides, api) => {
     <div class="carousel card">
       <div class="car-head"><div class="car-dots"></div><span class="mono car-count"></span></div>
       <div class="car-body"></div>
-      <div class="car-nav"><button class="btn ghost" data-p>← Geri</button><button class="btn" data-n>İleri →</button></div>
+      <div class="car-nav"><button class="btn ghost" data-car-prev>← Geri</button><button class="btn" data-car-next>İleri →</button></div>
     </div>`;
   const body = el.querySelector('.car-body');
+  const prevBtn = el.querySelector('[data-car-prev]'), nextBtn = el.querySelector('[data-car-next]');
   const dots = el.querySelector('.car-dots');
   const panes = [];
   let cur = 0, seen = 0;
@@ -376,13 +398,13 @@ GDT.carousel = (el, slides, api) => {
     panes.forEach((p, k) => { if (p) p.hidden = k !== cur; });
     dots.innerHTML = slides.map((_, k) => `<button class="${k === cur ? 'now' : k <= seen ? 'past' : ''}" data-k="${k}" aria-label="Slayt ${k + 1}"></button>`).join('');
     el.querySelector('.car-count').textContent = `${cur + 1} / ${slides.length}`;
-    el.querySelector('[data-p]').disabled = cur === 0;
-    el.querySelector('[data-n]').hidden = cur === slides.length - 1;
+    prevBtn.disabled = cur === 0;
+    nextBtn.hidden = cur === slides.length - 1;
     if (cur === slides.length - 1) api.done();
   };
   dots.addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) show(+b.dataset.k); });
-  el.querySelector('[data-p]').onclick = () => show(cur - 1);
-  el.querySelector('[data-n]').onclick = () => show(cur + 1);
+  prevBtn.onclick = () => show(cur - 1);
+  nextBtn.onclick = () => show(cur + 1);
   show(0);
 };
 
