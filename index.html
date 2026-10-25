@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GD&amp;T Atölyesi</title>
+  <meta name="description" content="Genel toleranslardan ileri GD&T'ye: ISO GPS tabanlı, kurcalayarak öğreten interaktif müfredat.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%231c5d99'/%3E%3Ccircle cx='12' cy='12' r='5' fill='none' stroke='white' stroke-width='1.8'/%3E%3Cpath d='M12 4v16M4 12h16' stroke='white' stroke-width='1.8'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/gdt.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#/">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>GD&amp;T <b>Atölyesi</b></span>
+    </a>
+    <div class="xp" id="xp-bar">
+      <span class="xp-level" id="xp-level">Çırak</span>
+      <span class="xp-track"><span class="xp-fill" id="xp-fill"></span></span>
+      <span class="xp-value mono" id="xp-value">0 XP</span>
+    </div>
+    <div class="top-actions">
+      <button class="icon-btn" id="btn-glossary" title="Sembol sözlüğü" aria-label="Sembol sözlüğü">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h11"/></svg>
+        <span class="lbl-wide">Sözlük</span>
+      </button>
+      <button class="icon-btn" id="btn-theme" title="Tema" aria-label="Tema değiştir">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="app"></main>
+
+  <div class="scrim" id="scrim" hidden></div>
+  <aside class="drawer" id="glossary" aria-label="Sembol sözlüğü" aria-hidden="true">
+    <div class="drawer-head">
+      <h2>Sözlük</h2>
+      <button class="icon-btn" id="btn-glossary-close" aria-label="Kapat">✕</button>
+    </div>
+    <input class="search" id="glossary-search" type="search" placeholder="Ara: düzlemsellik, MMR, datum…">
+    <div class="drawer-body" id="glossary-list"></div>
+  </aside>
+
+  <div class="toasts" id="toasts" aria-live="polite"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/scene3d.js"></script>
+  <script src="js/curriculum.js"></script>
+  <script src="js/glossary.js"></script>
+  <script src="js/sim0.js"></script>
+  <script src="js/iso.js"></script>
+  <script src="js/m0.js"></script>
+  <script src="js/m1.js"></script>
+  <script src="js/m2.js"></script>
+  <script src="js/m3.js"></script>
+  <script src="js/m4.js"></script>
+  <script src="js/m5.js"></script>
+  <script src="js/m6.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
